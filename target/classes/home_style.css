@@ -18,10 +18,8 @@
 }
 
 #loginButton {
-
-
   -fx-graphic: url("/go.png");
    -fx-background-color: transparent;
-
 }
+
 
