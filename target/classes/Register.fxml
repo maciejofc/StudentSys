@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.my.studentsys.view.register.RegisterController">
+   <top>
+      <Label alignment="CENTER" prefHeight="82.0" prefWidth="135.0" text="REGISTRATION" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="407.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="fullName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="292.0">
+               <padding>
+                  <Insets bottom="35.0" left="35.0" right="35.0" top="100.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="email" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="292.0">
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="password" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="189.0">
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="55.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="431.0" prefWidth="139.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="57.0" prefWidth="106.0" text="Full Name">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="43.0" prefWidth="107.0" text="E-mail">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Password">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="103.0" prefWidth="683.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Register">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="250.0" right="-30.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="25.0" prefWidth="95.0" text="Back">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Hyperlink alignment="BASELINE_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefWidth="209.0" text="Forgot password?">
+               <HBox.margin>
+                  <Insets right="70.0" top="40.0" />
+               </HBox.margin>
+            </Hyperlink>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

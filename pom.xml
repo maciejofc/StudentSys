@@ -70,7 +70,13 @@
 
         <resources>
             <resource>
-                <directory>src\main\java\pl\my\studentsys\homepage</directory>
+                <directory>src\main\java\pl\my\studentsys\view\homepage</directory>
+            </resource>
+            <resource>
+                <directory>src\main\java\pl\my\studentsys\view\register</directory>
+            </resource>
+            <resource>
+                <directory>src\main\java\pl\my\studentsys\view\mainview</directory>
             </resource>
         </resources>
     </build>

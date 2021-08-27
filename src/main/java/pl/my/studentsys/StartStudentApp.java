@@ -2,9 +2,9 @@ package pl.my.studentsys;
 
 import javafx.application.Application;
 
-public class GUIStarter {
+public class StartStudentApp {
     public static void main(String[] args) {
 
-        Application.launch(Main.class);
+        Application.launch(StudentApp.class);
     }
 }

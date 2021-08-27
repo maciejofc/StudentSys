@@ -41,13 +41,7 @@ public class HomepageController {
     String typedLogin = login.getText();
     String typedPassword = password.getText();
     boolean flag = viewModel.login(typedLogin,typedPassword);
-    if(flag){
-        Parent root = FXMLLoader.load(getClass().getResource("/MainView.fxml"));
-        Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 
 
     }
