@@ -1,15 +1,22 @@
 package pl.my.studentsys.viewmodel;
 
 import pl.my.studentsys.model.ModelFactory;
-import pl.my.studentsys.viewmodel.user.UserViewModel;
 
 public class ViewModelFactory {
-    private UserViewModel userViewModel;
-    public ViewModelFactory(ModelFactory modelFactory){
-        userViewModel = new UserViewModel(modelFactory.getUserDataModel());
+    private RegisterViewModel registerViewModel;
+    private HomepageViewModel homepageViewModel;
+
+    public ViewModelFactory(ModelFactory modelFactory) {
+        registerViewModel = new RegisterViewModel(modelFactory.getUserDataModel());
+        homepageViewModel = new HomepageViewModel(modelFactory.getUserDataModel());
     }
 
-    public UserViewModel getUserViewModel() {
-        return userViewModel;
+    public RegisterViewModel getRegisterViewModel() {
+        return registerViewModel;
+    }
+
+    public HomepageViewModel getHomepageViewModel() {
+
+        return homepageViewModel;
     }
 }

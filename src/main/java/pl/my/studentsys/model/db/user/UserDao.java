@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserDao {
 
     //Create user
-    void insertUser(String fullname,String email,String password) throws SQLException;
+    void createUser(String fullname, String email, String password) throws SQLException;
 
     //delete user
     void deleteUser(UserDataModelManager user) throws SQLException;

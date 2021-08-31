@@ -1,57 +1,53 @@
 package pl.my.studentsys.view.homepage;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import pl.my.studentsys.view.ViewHandler;
-import pl.my.studentsys.viewmodel.user.UserViewModel;
-
+import pl.my.studentsys.viewmodel.HomepageViewModel;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.SQLException;
+
+import static pl.my.studentsys.view.ViewHandler.openView;
 
 public class HomepageController {
 
     @FXML
-    private TextField login;
+    private TextField email;
     @FXML
     private TextField password;
-
-    private UserViewModel viewModel;
+    @FXML
+    private Button loginButton;
+    private HomepageViewModel viewModel;
 
     public HomepageController() {
     }
-    public void init(UserViewModel userViewModel){
-        this.viewModel = userViewModel;
+
+    public void init(HomepageViewModel vm) {
+        viewModel = vm;
+        email.textProperty().bindBidirectional(vm.emailProperty());
+        password.textProperty().bindBidirectional(vm.passwordProperty());
     }
+
     @FXML
     public void logInButtonAction(ActionEvent actionEvent) throws SQLException, IOException {
-    String typedLogin = login.getText();
-    String typedPassword = password.getText();
-    boolean flag = viewModel.login(typedLogin,typedPassword);
-    if(flag){
-        Parent root = FXMLLoader.load(getClass().getResource("/MainView.fxml"));
-        Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
+
+
+        if (viewModel.login()) {
+            openView("MainView");
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            stage.close();
+        }
 
     }
 
+    @FXML
+    public void openRegistration(ActionEvent actionEvent) throws IOException {
+        openView("Register");
+    }
 
 
 //    public  ObservableMap<String,String> getAllUsers(){

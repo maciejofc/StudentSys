@@ -10,16 +10,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
-    private static final String SELECT_QUERY = "SELECT * FROM users WHERE email = ?";
+    private static final String SELECT_USER_QUERY = "SELECT * FROM users WHERE email = ?";
+    private static final String INSERT_QUERY = "INSERT INTO users values (?,?,?,?)";
     JdbcDao jdbcDao = new JdbcDao();
 
-
-
-    @Override
-    public void insertUser(String fullname, String email, String password) throws SQLException {
-//    String query = "INSERT INTO users ('fullname','email,'password') VALUES (" +user.getFullName()+","+user.getEmail()+","+user.getPassword()+")";
-//    jdbcDao.executeAnySQL(query);
-    }
 
     @Override
     public void deleteUser(UserDataModelManager user) throws SQLException {
@@ -41,34 +35,48 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
+    @Override
+    public void createUser(String fullname, String email, String password)  {
+//    String query = "INSERT INTO users ('fullname','email,'password') VALUES (" +user.getFullName()+","+user.getEmail()+","+user.getPassword()+")";
+//    jdbcDao.executeAnySQL(query);
 
+
+            try (Connection connection = jdbcDao.getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY)) {
+                    preparedStatement.setString(1,null);
+                    preparedStatement.setString(2,fullname);
+                    preparedStatement.setString(3,email);
+                    preparedStatement.setString(4,password);
+                    preparedStatement.execute();
+            } catch (SQLException e) {
+                printSQLException(e);
+            }
+
+
+    }
+
+    @Override
     public UserDataModelManager selectUserByLogin(String email) throws SQLException {
 
         // Step 1: Establishing a Connection and
         // try-with-resource statement will auto close the connection.
         try (Connection connection = jdbcDao.getConnection();
              // Step 2:Create a statement using connection object
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_QUERY)) {
             preparedStatement.setString(1, email);
-
-
-            System.out.println(preparedStatement);
-
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String fullname = resultSet.getString("fullname");
                 String login = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                System.out.println("login= "+login+",password="+password);
+                System.out.println("login= " + login + ",password=" + password);
                 return new UserDataModelManager(id, fullname, login, password);
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
         return null;
-
-
     }
 
     public static void printSQLException(SQLException ex) {

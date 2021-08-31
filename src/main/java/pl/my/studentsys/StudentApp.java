@@ -1,9 +1,6 @@
 package pl.my.studentsys;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.my.studentsys.model.ModelFactory;
 import pl.my.studentsys.view.ViewHandler;
@@ -15,9 +12,8 @@ public class StudentApp extends Application {
 
         ModelFactory modelFactory = new ModelFactory();
         ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
-        ViewHandler viewHandler = new ViewHandler(stage,viewModelFactory);
+        ViewHandler viewHandler = new ViewHandler(stage, viewModelFactory);
         viewHandler.start();
-
 
 
     }

@@ -5,14 +5,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.my.studentsys.view.homepage.HomepageController;
+
 import pl.my.studentsys.view.register.RegisterController;
 import pl.my.studentsys.viewmodel.ViewModelFactory;
 
 import java.io.IOException;
 
 public class ViewHandler {
-    private final Stage stage;
-    private final ViewModelFactory viewModelFactory;
+    private static Stage stage;
+    private static ViewModelFactory viewModelFactory;
 
     public ViewHandler(Stage stage, ViewModelFactory viewModelFactory) {
         this.stage = stage;
@@ -20,11 +21,13 @@ public class ViewHandler {
     }
 
     public void start() throws Exception {
-        openView("Register");
+        //openView("Register");
         openView("Homepage");
+
+
     }
 
-    private void openView(String viewToOpen) throws IOException {
+    public static void openView(String viewToOpen) throws IOException {
         Scene scene = null;
         FXMLLoader loader = new FXMLLoader();
         Parent root = null;
@@ -32,21 +35,28 @@ public class ViewHandler {
 
 
         if ("Homepage".equals(viewToOpen)) {
-            loader.setLocation(getClass().getResource("/Homepage.fxml"));
+            loader.setLocation(ViewHandler.class.getResource("/Homepage.fxml"));
             root = loader.load();
             HomepageController view = loader.getController();
             root.getStylesheets().add("home_style.css");
-
-            view.init(viewModelFactory.getUserViewModel());
+            view.init(viewModelFactory.getHomepageViewModel());
             stage.setTitle("LOGIN");
 
         }
-        else if ("Register".equals(viewToOpen)) {
-            loader.setLocation(getClass().getResource("/Register.fxml"));
+         if ("Register".equals(viewToOpen)) {
+            loader.setLocation(ViewHandler.class.getResource("/Register.fxml"));
             root = loader.load();
             RegisterController view = loader.getController();
-            view.init(viewModelFactory.getUserViewModel());
+            view.init(viewModelFactory.getRegisterViewModel());
             stage.setTitle("REGISTER");
+
+        }
+        else if ("MainView".equals(viewToOpen)) {
+            loader.setLocation(ViewHandler.class.getResource("/MainView.fxml"));
+            root = loader.load();
+            //RegisterController view = loader.getController();
+            //view.init(viewModelFactory.getUserViewModel());
+            stage.setTitle("StudentSystem");
 
         }
         scene = new Scene(root);

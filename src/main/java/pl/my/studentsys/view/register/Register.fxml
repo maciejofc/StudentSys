@@ -16,10 +16,7 @@
    <center>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="407.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="fullName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="292.0">
-               <padding>
-                  <Insets bottom="35.0" left="35.0" right="35.0" top="100.0" />
-               </padding>
+            <TextField fx:id="fullname">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -79,12 +76,12 @@
    <bottom>
       <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="103.0" prefWidth="683.0" BorderPane.alignment="CENTER">
          <children>
-            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Register">
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="95.0" text="Register">
                <HBox.margin>
                   <Insets bottom="20.0" left="250.0" right="-30.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="25.0" prefWidth="95.0" text="Back">
+            <Button fx:id="exitButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="95.0" text="Back">
                <HBox.margin>
                   <Insets bottom="20.0" left="50.0" right="20.0" top="20.0" />
                </HBox.margin>
