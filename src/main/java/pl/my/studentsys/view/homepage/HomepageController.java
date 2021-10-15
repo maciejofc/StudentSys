@@ -34,10 +34,11 @@ public class HomepageController {
     @FXML
     public void logInButtonAction(ActionEvent actionEvent) throws SQLException, IOException {
 
-
+        String username = email.getText();
 
         if (viewModel.login()) {
-            openView("MainView");
+            System.out.println("LOGGED IN");
+            openView("TabView",username);
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
         }
@@ -49,30 +50,5 @@ public class HomepageController {
         openView("Register");
     }
 
-
-//    public  ObservableMap<String,String> getAllUsers(){
-//        Map<String,String> map = new HashMap<String,String>();
-//
-//        ObservableMap<String,String> observableMap = FXCollections.observableMap(map);
-//        Connection conn = getConnection();
-//        String query = "SELECT * FROM users";
-//        Statement st;
-//        ResultSet rs;
-//        try{
-//            st= conn.createStatement();
-//            rs = st.executeQuery(query);
-//            Users users;
-//            while (rs.next()){
-//                users = new Users(rs.getInt("id"),rs.getString("fullName"),rs.getString("email"),rs.getString("password"));
-//                observableMap.put(users.getEmail(),users.getPassword());
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return observableMap;
-//    }
-//    private checkFields(String login, String password){
-//
-//    }
 
 }

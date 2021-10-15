@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import pl.my.studentsys.view.homepage.HomepageController;
 
 import pl.my.studentsys.view.register.RegisterController;
+import pl.my.studentsys.view.tabview.TabViewController;
 import pl.my.studentsys.viewmodel.ViewModelFactory;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class ViewHandler {
 
     }
 
-    public static void openView(String viewToOpen) throws IOException {
+    public static void openView(String viewToOpen,String... values) throws IOException {
         Scene scene = null;
         FXMLLoader loader = new FXMLLoader();
         Parent root = null;
@@ -51,11 +52,12 @@ public class ViewHandler {
             stage.setTitle("REGISTER");
 
         }
-        else if ("MainView".equals(viewToOpen)) {
-            loader.setLocation(ViewHandler.class.getResource("/MainView.fxml"));
+         if ("TabView".equals(viewToOpen)) {
+            loader.setLocation(ViewHandler.class.getResource("/TabView.fxml"));
             root = loader.load();
-            //RegisterController view = loader.getController();
-            //view.init(viewModelFactory.getUserViewModel());
+            TabViewController view = loader.getController();
+            view.displayName(values[0]);
+            view.init(viewModelFactory);
             stage.setTitle("StudentSystem");
 
         }

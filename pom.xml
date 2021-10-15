@@ -76,7 +76,11 @@
                 <directory>src\main\java\pl\my\studentsys\view\register</directory>
             </resource>
             <resource>
-                <directory>src\main\java\pl\my\studentsys\view\mainview</directory>
+                <directory>src\main\java\pl\my\studentsys\view\tabview</directory>
+            </resource>
+
+            <resource>
+                <directory>src\main\java\pl\my\studentsys\view\student</directory>
             </resource>
         </resources>
     </build>
