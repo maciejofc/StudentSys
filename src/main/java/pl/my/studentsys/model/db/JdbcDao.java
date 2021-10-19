@@ -7,8 +7,6 @@ public class JdbcDao {
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "mysqlpassword";
 
-
-
     public Connection getConnection()  {
         Connection conn;
         try{
@@ -21,11 +19,5 @@ public class JdbcDao {
         }
     }
 
-
-
-
-
-    // for only non-select statements
-    // it returns number of records affected
 
 }

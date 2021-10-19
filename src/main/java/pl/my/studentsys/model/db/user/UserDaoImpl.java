@@ -37,8 +37,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void createUser(String fullname, String email, String password)  {
-//    String query = "INSERT INTO users ('fullname','email,'password') VALUES (" +user.getFullName()+","+user.getEmail()+","+user.getPassword()+")";
-//    jdbcDao.executeAnySQL(query);
+
 
 
             try (Connection connection = jdbcDao.getConnection();

@@ -3,6 +3,7 @@ package pl.my.studentsys.view.register;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import pl.my.studentsys.viewmodel.RegisterViewModel;
@@ -18,7 +19,7 @@ public class RegisterController {
     @FXML
     private TextField email;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Button exitButton;
 

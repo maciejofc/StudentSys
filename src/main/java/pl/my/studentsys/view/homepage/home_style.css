@@ -1,25 +1,21 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-.root {
 
--fx-font-family: 'Open Sans', sans-serif;
-
+.root{
+    -fx-font-size: 20px;
+    -fx-font-weight:bold;
 }
-*{
--fx-font-size:20;
--fx-font-weight:bold;
+.header
+{
+    -fx-font-size:25px;
+    -fx-font-style:italic;
 }
-#vbox
+#background
 {
     -fx-background-image: url("/bg_img.jpg");
-
-
 }
-
-#loginButton {
-  -fx-graphic: url("/go.png");
+#login-button {
+  -fx-graphic: url("/login_img.png");
    -fx-background-color: transparent;
+
 }
 
 
